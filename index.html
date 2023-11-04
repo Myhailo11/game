@@ -7,6 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="./index.js"></script>
+    <section class="game">
+        <div class="container">
+          <div class="screen">
+            <h1 class="game__title">Зіграй в гру!</h1>
+            <a href="#" class="start"> Почати гру</a>
+          </div>
+          <div class="screen">
+            <h2 class="game__title">Виберіть час!</h1>
+            <ul class="time__list">
+              <li><button data-time="10" class="time__btn">10 сек</button></li>
+              <li><button data-time="20" class="time__btn">20 сек</button></li>
+              <li><button data-time="30" class="time__btn">30 сек</button></li>
+            </ul>
+          </div>
+  <div class="screen">
+              <h2 class="game__title">Спіймай свій мяч!</h1>
+              <p class="game__time">Залишилось: <span>00:00</span></p>
+              <div class="board"></div>
+              <button class="game__new">Грати ще!</button>
+            </div>
+  
+        </div>
+      </section>
+      <script src="./index.js"></script>
 </body>
 </html>
