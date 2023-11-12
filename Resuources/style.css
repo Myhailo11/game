@@ -80,6 +80,27 @@
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 30px;
-    background-color: #333;
+    background-color: #09251e;
   }
   
+.game__new {
+  border: none;
+  background-color: #09251e;
+  color: aliceblue;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.hide{
+  opacity: 0;
+  transition: opacity 0.5s linear ;
+}
+
+.circle {
+  background-image: url('./Resuources/soccer_ball.svg');
+  position: absolute;
+  background-size: cover;
+  cursor: pointer;
+
+
+}
