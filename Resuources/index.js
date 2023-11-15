@@ -1,29 +1,57 @@
-const startBtn = document.querySelector(".start");
+const startButton = document.querySelector(".start");
 const screens = document.querySelectorAll(".screen");
 const timeList = document.querySelector(".time__list");
-const reload = document.querySelector(".game__new");
+const restartButton = document.querySelector(".game__new");
 const board = document.querySelector(".board");
-const timeEl = document.querySelector("#time");
+const timerDisplay = document.querySelector("#timer");
 let time = 0;
 
+console.log("startButton:", startButton);
 console.log("time:", time);
 console.log("TimeLists:", timeList);
 console.log("Screens:",screens);
-console.log(timeEl);
+console.log(timerDisplay);
 
 
-startBtn.addEventListener("click", () => {
+startButton.addEventListener("click", () => {
   screens[0].classList.add("up");
 });
 
-timeList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("time__btn")) {
-    time = parseInt(e.target.getAttribute("data-time"));
+timeList.addEventListener("click", (timeListElement) => {
+  if (timeListElement.target.classList.contains("time__btn")) {
+    time = parseInt(timeListElement.target.getAttribute("data-time"));
     screens[1].classList.add("up");
     console.log("time:", time);
+    startGame();
   }
 });
 
-reload.addEventListener("click",() => {
+restartButton.addEventListener("click",() => {
   location.reload();
-}) 
+});
+
+function startGame(){
+  setInterval(decreaceTime, 1000);
+  showTime(time);
+}
+
+function decreaceTime(){
+  if(time === 0){
+  finishGame();
+  }  else {
+    let zeroTime = --time;
+    if (zeroTime < 10) {
+     zeroTime = `0${zeroTime}`;
+    }
+    showTime(zeroTime);
+  }
+}
+function showTime(value){
+  timerDisplay.innerHTML = `00:${value}`;
+}
+function finishGame(){
+  timerDisplay.parentNode.classList.add("hide");
+  board.innerHTML = `<h3>ваш рахунок:</h3>`
+}
+
+
