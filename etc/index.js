@@ -2,8 +2,8 @@ const startButton = document.querySelector(".start");
 const screens = document.querySelectorAll(".screen");
 const timeList = document.querySelector(".time__list");
 const restartButton = document.querySelector(".game__new");
-const board = document.querySelector(".board");
 const timerDisplay = document.querySelector("#timer");
+const board = document.querySelector(".board");
 let time = 0;
 
 console.log("startButton:", startButton);
@@ -33,6 +33,7 @@ restartButton.addEventListener("click",() => {
 function startGame(){
   setInterval(decreaceTime, 1000);
   showTime(time);
+  createRandomCircle();
 }
 
 function decreaceTime(){
@@ -54,4 +55,21 @@ function finishGame(){
   board.innerHTML = `<h3>ваш рахунок:</h3>`
 }
 
+function createRandomCircle(){
+  const circle  = document.createElement("div");
+  const size  =  getRandomNumber(20,80);
+  console.log ("size :",size);
+  const {width, height} =board.getBoundingClientRect();
+  const x = getRandomNumber(0, width - size);
+  const y = getRandomNumber(0, height - size);
+  circle.classList.add("circle");
+  circle.style.width = `${size}px`;
+  circle.style.height = `${size}px`;
+  circle.style.top = `${y}px`;
+  circle.style.left = `${x}px`;
+  board.append(circle);
+}
 
+function getRandomNumber (min,max){
+  return Math.round(Math.random()*(max-min)+min);
+}

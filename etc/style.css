@@ -97,7 +97,7 @@
 }
 
 .circle {
-  background-image: url('./Resuources/soccer_ball.svg');
+  background-image: url("./soccer_ball.svg");
   position: absolute;
   background-size: cover;
   cursor: pointer;
