@@ -73,3 +73,6 @@ function createRandomCircle(){
 function getRandomNumber (min,max){
   return Math.round(Math.random()*(max-min)+min);
 }
+reeload.addEventListener("clic", () => {
+  location.reload();
+});
