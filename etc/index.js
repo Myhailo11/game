@@ -5,12 +5,9 @@ const restartButton = document.querySelector(".game__new");
 const timerDisplay = document.querySelector("#timer");
 const board = document.querySelector(".board");
 let time = 0;
+let score=0;
 
-console.log("startButton:", startButton);
-console.log("time:", time);
-console.log("TimeLists:", timeList);
-console.log("Screens:",screens);
-console.log(timerDisplay);
+
 
 
 startButton.addEventListener("click", () => {
@@ -25,7 +22,14 @@ timeList.addEventListener("click", (timeListElement) => {
     startGame();
   }
 });
-
+board.addEventListener("click", (e) =>{
+  if (e.target.classList.contains("circle")) {
+    score++;
+    e.target.remove();
+    createRandomCircle();
+  }
+}
+)
 restartButton.addEventListener("click",() => {
   location.reload();
 });
@@ -52,7 +56,7 @@ function showTime(value){
 }
 function finishGame(){
   timerDisplay.parentNode.classList.add("hide");
-  board.innerHTML = `<h3>ваш рахунок:</h3>`
+  board.innerHTML = `<h3>ваш рахунок:${score}</h3>`
 }
 
 function createRandomCircle(){
